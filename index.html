@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equipamientos Especiales</title>
+<style>
+:root { --brand:#173754; --muted:#6b7280; }
+body { margin:0; font-family:system-ui; background:white; color:#0f172a; }
+.wrap { max-width:720px; margin:0 auto; padding:32px 20px 48px; text-align:center; }
+.logo { width:150px; margin:12px auto 10px; display:block; }
+h1 { font-size:32px; margin:8px 0 12px; color:var(--brand); text-transform:uppercase; }
+p.lead { color:var(--muted); font-size:20px; line-height:1.45; margin:10px 0 26px; padding:0 8px; }
+.btns, .btn-call { display:grid; gap:14px; margin:16px 0 10px; }
+.btns { grid-template-columns:1fr 1fr 1fr; }
+.btn-call { grid-template-columns:1fr 1fr 1fr; }
+a.btn { background:var(--brand); color:white; text-decoration:none; padding:16px 20px;
+        border-radius:14px; font-weight:650; font-size:17px; }
+.subtle { margin-top:32px; font-size:19px; color:var(--muted); line-height:1.45; padding:0 8px; }
+h2 { margin-top:42px; margin-bottom:12px; font-size:24px; color:var(--brand); }
+.gallery { position:relative; margin:10px auto 0; max-width:720px; border-radius:16px;
+           overflow:hidden; box-shadow:0 10px 25px rgba(15,23,42,0.18); }
+.gallery img { width:100%; height:auto; display:block; }
+.gallery button.nav {
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(0,0,0,0.45); border:none; color:#fff;
+  font-size:22px; width:38px; height:38px; border-radius:999px; cursor:pointer;
+}
+.gallery button.nav:hover { background:rgba(0,0,0,0.65); }
+.gallery .prev { left:10px; }
+.gallery .next { right:10px; }
+.dots { display:flex; justify-content:center; gap:6px; margin-top:10px; }
+.dot { width:9px; height:9px; border-radius:999px; background:#cbd5f5; cursor:pointer; }
+.dot.active { background:var(--brand); }
+footer { margin-top:40px; font-size:12px; color:var(--muted); }
+.address { margin-top:18px; font-size:16px; line-height:1.55; white-space:pre-line; }
+@media(max-width:520px){
+  .btns, .btn-call { grid-template-columns:1fr; }
+  p.lead{font-size:19px;}
+  .subtle{font-size:18px;}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<img src="logo.png" class="logo" alt="Equipamientos Especiales">
+<h1>Equipamientos Especiales</h1>
+
+<p class="lead">
+Fabricación e instalación de equipamiento en diversos materiales, como acero inoxidable, hierro,
+aluminio, alucobond, vidrio, madera, acero al carbono, entre otros.
+</p>
+
+<div class="btns">
+  <a class="btn" href="https://wa.link/uyovev" target="_blank">📲 WhatsApp</a>
+  <a class="btn" href="https://instagram.com/equipamientos.especiales" target="_blank">📷 Instagram</a>
+  <a class="btn" href="https://maps.app.goo.gl/yfx9Vy2JtgNu6587A?g_st=aw" target="_blank">📍 Google Maps</a>
+</div>
+
+<div class="btn-call">
+  <a class="btn" href="tel:+541168783881">📞 Llamar Celular</a>
+  <a class="btn" href="tel:+541120852821">☎️ Llamar Fijo</a>
+  <a class="btn" href="mailto:equipamientos@especiales.com.ar">✉️ Enviar Email</a>
+</div>
+
+<p class="subtle">
+Comunicate, mirá nuestros trabajos y visitá nuestro taller. Presupuestos sin cargo.
+</p>
+
+<h2>Algunos de nuestros trabajos</h2>
+
+<div class="gallery">
+  <img id="galeria-img" src="foto1.jpg">
+  <button class="nav prev" onclick="cambiar(-1)">‹</button>
+  <button class="nav next" onclick="cambiar(1)">›</button>
+</div>
+<div class="dots" id="dots"></div>
+
+<footer>© 2025 Equipamientos Especiales</footer>
+
+<div class="address">
+📍  Florentino Ameghino 3452, B1674AGR
+🏙️ Sáenz Peña, Provincia de Buenos Aires
+📬 equipamientos@especiales.com
+📲 11 6878 3881
+☎️ 2085 2821
+</div>
+
+</main>
+
+<script>
+const imagenes = ["foto1.jpg","foto2.jpg","foto3.jpg","foto4.jpg","foto5.jpg",
+                  "foto6.jpg","foto7.jpg","foto8.jpg","foto9.jpg","foto10.jpg"];
+let indice = 0;
+const imgEl = document.getElementById('galeria-img');
+const dotsWrap = document.getElementById('dots');
+
+function renderDots(){
+  dotsWrap.innerHTML = "";
+  imagenes.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='dot'+(i===indice?' active':'');
+    d.onclick=()=>mostrar(i);
+    dotsWrap.appendChild(d);
+  });
+}
+
+function mostrar(i){
+  if(i<0) i=imagenes.length-1;
+  if(i>=imagenes.length) i=0;
+  indice=i;
+  imgEl.src=imagenes[indice];
+  renderDots();
+}
+
+function cambiar(delta){ mostrar(indice+delta); }
+
+setInterval(()=>cambiar(1),4000);
+
+renderDots();
+</script>
+
+</body>
+</html>
