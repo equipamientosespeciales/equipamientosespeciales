@@ -1,89 +1,272 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-        <link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Equipamientos Especiales</title>
+
 <style>
-:root { --brand:#173754; --muted:#6b7280; }
-body { margin:0; font-family:system-ui; background:white; color:#0f172a; }
-.wrap { max-width:720px; margin:0 auto; padding:32px 20px 48px; text-align:center; }
-.logo { width:150px; margin:12px auto 10px; display:block; }
-h1 { font-size:32px; margin:8px 0 12px; color:var(--brand); text-transform:uppercase; }
-p.lead { color:var(--muted); font-size:20px; line-height:1.45; margin:10px 0 26px; padding:0 8px; }
-.btns, .btn-call { display:grid; gap:14px; margin:16px 0 10px; }
-.btns { grid-template-columns:1fr 1fr 1fr; }
-.btn-call { grid-template-columns:1fr 1fr 1fr; }
-a.btn { background:var(--brand); color:white; text-decoration:none; padding:16px 20px;
-        border-radius:14px; font-weight:650; font-size:17px; }
-.subtle { margin-top:32px; font-size:19px; color:var(--muted); line-height:1.45; padding:0 8px; }
-h2 { margin-top:42px; margin-bottom:12px; font-size:24px; color:var(--brand); }
-.gallery { position:relative; margin:10px auto 0; max-width:720px; border-radius:16px;
-           overflow:hidden; box-shadow:0 10px 25px rgba(15,23,42,0.18); }
-.gallery img { width:100%; height:auto; display:block; }
-.gallery button.nav {
-  position:absolute; top:50%; transform:translateY(-50%);
-  background:rgba(0,0,0,0.45); border:none; color:#fff;
-  font-size:22px; width:38px; height:38px; border-radius:999px; cursor:pointer;
+:root{
+  --brand:#173754;
+  --brand-dark:#10283d;
+  --muted:#6b7280;
 }
-.gallery button.nav:hover { background:rgba(0,0,0,0.65); }
-.gallery .prev { left:10px; }
-.gallery .next { right:10px; }
-.dots { display:flex; justify-content:center; gap:6px; margin-top:10px; }
-.dot { width:9px; height:9px; border-radius:999px; background:#cbd5f5; cursor:pointer; }
-.dot.active { background:var(--brand); }
-footer { margin-top:40px; font-size:12px; color:var(--muted); }
-.address { margin-top:18px; font-size:16px; line-height:1.55; white-space:pre-line; }
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,sans-serif;
+  background:#fff;
+  color:#0f172a;
+}
+
+.wrap{
+  max-width:720px;
+  margin:0 auto;
+  padding:32px 20px 48px;
+  text-align:center;
+}
+
+.logo{
+  width:150px;
+  margin:12px auto 10px;
+  display:block;
+}
+
+h1{
+  font-size:32px;
+  margin:8px 0 12px;
+  color:var(--brand);
+  text-transform:uppercase;
+}
+
+p.lead{
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.45;
+  margin:10px 0 26px;
+  padding:0 8px;
+}
+
+.store-btn{
+  display:block;
+  background:var(--brand-dark);
+  color:white;
+  text-decoration:none;
+  padding:20px;
+  border-radius:18px;
+  font-weight:700;
+  font-size:20px;
+  margin:25px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  transition:.2s;
+}
+
+.store-btn:hover{
+  transform:translateY(-2px);
+}
+
+.btns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin:18px 0;
+}
+
+.btn-call{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:14px;
+  margin:18px 0;
+}
+
+a.btn{
+  background:var(--brand);
+  color:white;
+  text-decoration:none;
+  padding:16px 20px;
+  border-radius:16px;
+  font-weight:650;
+  font-size:17px;
+  box-shadow:0 6px 18px rgba(23,55,84,.15);
+  transition:.2s;
+}
+
+a.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(23,55,84,.25);
+}
+
+.subtle{
+  margin-top:30px;
+  font-size:19px;
+  color:var(--muted);
+  line-height:1.5;
+  padding:0 8px;
+}
+
+h2{
+  margin-top:42px;
+  margin-bottom:12px;
+  font-size:24px;
+  color:var(--brand);
+}
+
+.gallery{
+  position:relative;
+  margin:10px auto 0;
+  max-width:720px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(15,23,42,0.18);
+}
+
+.gallery img{
+  width:100%;
+  display:block;
+}
+
+.gallery button.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.45);
+  border:none;
+  color:white;
+  font-size:22px;
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+.gallery button.nav:hover{
+  background:rgba(0,0,0,.7);
+}
+
+.gallery .prev{
+  left:10px;
+}
+
+.gallery .next{
+  right:10px;
+}
+
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:10px;
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:#cbd5e1;
+  cursor:pointer;
+}
+
+.dot.active{
+  background:var(--brand);
+}
+
+footer{
+  margin-top:40px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.address{
+  margin-top:18px;
+  font-size:16px;
+  line-height:1.55;
+  white-space:pre-line;
+}
+
 @media(max-width:520px){
-  .btns, .btn-call { grid-template-columns:1fr; }
-  p.lead{font-size:19px;}
-  .subtle{font-size:18px;}
+
+  .btns{
+    grid-template-columns:1fr;
+  }
+
+  .btn-call{
+    grid-template-columns:1fr;
+  }
+
+  p.lead{
+    font-size:19px;
+  }
+
+  .subtle{
+    font-size:18px;
+  }
+
+  .store-btn{
+    font-size:18px;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <main class="wrap">
 
 <img src="logo.png" class="logo" alt="Equipamientos Especiales">
+
 <h1>Equipamientos Especiales</h1>
 
 <p class="lead">
-Fabricación e instalación de equipamiento en diversos materiales, como acero inoxidable, hierro,
-aluminio, alucobond, vidrio, madera, acero al carbono, entre otros.
+Fabricación e instalación de equipamiento en acero inoxidable, hierro, aluminio, vidrio, madera, alucobond y otros materiales para hogares, comercios e industrias.
 </p>
+
+<a class="store-btn" href="https://equipamientosespeciales.mitiendanube.com/" target="_blank" rel="noopener">
+🛒 VER CATÁLOGO Y COMPRAR ONLINE
+</a>
 
 <div class="btns">
   <a class="btn" href="https://wa.link/uyovev" target="_blank" rel="noopener">📲 WhatsApp</a>
+
   <a class="btn" href="https://instagram.com/equipamientos.especiales" target="_blank" rel="noopener">📷 Instagram</a>
+
   <a class="btn" href="https://maps.app.goo.gl/yfx9Vy2JtgNu6587A?g_st=aw" target="_blank" rel="noopener">📍 Google Maps</a>
+
+  <a class="btn" href="mailto:equipamientos@especiales.com.ar">✉️ Email</a>
 </div>
 
 <div class="btn-call">
-  <a class="btn" href="tel:+541168783881">📞 Llamar Celular</a>
-  <a class="btn" href="tel:+541120852821">☎️ Llamar Fijo</a>
-  <a class="btn" href="mailto:equipamientos@especiales.com.ar">✉️ Enviar Email</a>
+  <a class="btn" href="tel:+541168783881">📞 Celular</a>
+  <a class="btn" href="tel:+541120852821">☎️ Fijo</a>
+  <a class="btn" href="mailto:equipamientos@especiales.com.ar">📨 Consultar</a>
 </div>
 
 <p class="subtle">
-Comunicate, mirá nuestros trabajos y visitá nuestro taller. Presupuestos sin cargo.
+Fabricación propia, diseño a medida e instalación. Soluciones para hogares, comercios e industrias. Presupuestos sin cargo.
 </p>
 
-<h2>Algunos de nuestros trabajos</h2>
+<h2>Trabajos realizados</h2>
 
 <div class="gallery">
   <img id="galeria-img" src="foto1.jpg">
+
   <button class="nav prev" onclick="cambiar(-1)">‹</button>
+
   <button class="nav next" onclick="cambiar(1)">›</button>
 </div>
+
 <div class="dots" id="dots"></div>
 
-<footer>© 2025 Equipamientos Especiales</footer>
+<footer>
+© 2025 Equipamientos Especiales
+</footer>
 
 <div class="address">
-📍  Florentino Ameghino 3452, B1674AGR
+📍 Florentino Ameghino 3452, B1674AGR
 🏙️ Sáenz Peña, Provincia de Buenos Aires
+
 📬 equipamientos@especiales.com.ar
+
 📲 11 6878 3881
 ☎️ 2085 2821
 </div>
@@ -91,14 +274,27 @@ Comunicate, mirá nuestros trabajos y visitá nuestro taller. Presupuestos sin c
 </main>
 
 <script>
-const imagenes = ["foto1.jpg","foto2.jpg","foto3.jpg","foto4.jpg","foto5.jpg",
-                  "foto6.jpg","foto7.jpg","foto8.jpg","foto9.jpg","foto10.jpg"];
+const imagenes = [
+"foto1.jpg",
+"foto2.jpg",
+"foto3.jpg",
+"foto4.jpg",
+"foto5.jpg",
+"foto6.jpg",
+"foto7.jpg",
+"foto8.jpg",
+"foto9.jpg",
+"foto10.jpg"
+];
+
 let indice = 0;
+
 const imgEl = document.getElementById('galeria-img');
 const dotsWrap = document.getElementById('dots');
 
 function renderDots(){
-  dotsWrap.innerHTML = "";
+  dotsWrap.innerHTML = '';
+
   imagenes.forEach((_,i)=>{
     const d=document.createElement('div');
     d.className='dot'+(i===indice?' active':'');
@@ -110,14 +306,20 @@ function renderDots(){
 function mostrar(i){
   if(i<0) i=imagenes.length-1;
   if(i>=imagenes.length) i=0;
+
   indice=i;
   imgEl.src=imagenes[indice];
+
   renderDots();
 }
 
-function cambiar(delta){ mostrar(indice+delta); }
+function cambiar(delta){
+  mostrar(indice+delta);
+}
 
-setInterval(()=>cambiar(1),4000);
+setInterval(()=>{
+  cambiar(1);
+},4000);
 
 renderDots();
 </script>
