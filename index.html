@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Equipamientos Especiales</title>
 
 <style>
+
 :root{
   --brand:#173754;
   --brand-dark:#10283d;
@@ -75,7 +79,7 @@ p.lead{
 
 .btn-call{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:1fr 1fr;
   gap:14px;
   margin:18px 0;
 }
@@ -92,9 +96,21 @@ a.btn{
   transition:.2s;
 }
 
+a.btn i{
+  margin-right:8px;
+}
+
 a.btn:hover{
   transform:translateY(-2px);
   box-shadow:0 10px 24px rgba(23,55,84,.25);
+}
+
+.whatsapp{
+  background:#25D366 !important;
+}
+
+.whatsapp:hover{
+  background:#1fb959 !important;
 }
 
 .subtle{
@@ -180,7 +196,7 @@ footer{
 .address{
   margin-top:18px;
   font-size:16px;
-  line-height:1.55;
+  line-height:1.7;
   white-space:pre-line;
 }
 
@@ -205,7 +221,9 @@ footer{
   .store-btn{
     font-size:18px;
   }
+
 }
+
 </style>
 </head>
 
@@ -226,19 +244,35 @@ Fabricación e instalación de equipamiento en acero inoxidable, hierro, alumini
 </a>
 
 <div class="btns">
-  <a class="btn" href="https://wa.link/uyovev" target="_blank" rel="noopener">📲 WhatsApp</a>
 
-  <a class="btn" href="https://instagram.com/equipamientos.especiales" target="_blank" rel="noopener">📷 Instagram</a>
+<a class="btn whatsapp" href="https://wa.link/uyovev" target="_blank" rel="noopener">
+<i class="fa-brands fa-whatsapp"></i>WhatsApp
+</a>
 
-  <a class="btn" href="https://maps.app.goo.gl/yfx9Vy2JtgNu6587A?g_st=aw" target="_blank" rel="noopener">📍 Google Maps</a>
+<a class="btn" href="https://instagram.com/equipamientos.especiales" target="_blank" rel="noopener">
+<i class="fa-brands fa-instagram"></i>Instagram
+</a>
 
-  <a class="btn" href="mailto:equipamientos@especiales.com.ar">✉️ Email</a>
+<a class="btn" href="https://maps.app.goo.gl/yfx9Vy2JtgNu6587A?g_st=aw" target="_blank" rel="noopener">
+<i class="fa-solid fa-location-dot"></i>Google Maps
+</a>
+
+<a class="btn" href="mailto:equipamientos@especiales.com.ar">
+<i class="fa-solid fa-envelope"></i>Email
+</a>
+
 </div>
 
 <div class="btn-call">
-  <a class="btn" href="tel:+541168783881">📞 Celular</a>
-  <a class="btn" href="tel:+541120852821">☎️ Fijo</a>
-  <a class="btn" href="mailto:equipamientos@especiales.com.ar">📨 Consultar</a>
+
+<a class="btn" href="tel:+541168783881">
+<i class="fa-solid fa-mobile-screen"></i>Celular
+</a>
+
+<a class="btn" href="tel:+541120852821">
+<i class="fa-solid fa-phone"></i>Fijo
+</a>
+
 </div>
 
 <p class="subtle">
@@ -248,11 +282,13 @@ Fabricación propia, diseño a medida e instalación. Soluciones para hogares, c
 <h2>Trabajos realizados</h2>
 
 <div class="gallery">
-  <img id="galeria-img" src="foto1.jpg">
 
-  <button class="nav prev" onclick="cambiar(-1)">‹</button>
+<img id="galeria-img" src="foto1.jpg">
 
-  <button class="nav next" onclick="cambiar(1)">›</button>
+<button class="nav prev" onclick="cambiar(-1)">‹</button>
+
+<button class="nav next" onclick="cambiar(1)">›</button>
+
 </div>
 
 <div class="dots" id="dots"></div>
@@ -264,9 +300,7 @@ Fabricación propia, diseño a medida e instalación. Soluciones para hogares, c
 <div class="address">
 📍 Florentino Ameghino 3452, B1674AGR
 🏙️ Sáenz Peña, Provincia de Buenos Aires
-
 📬 equipamientos@especiales.com.ar
-
 📲 11 6878 3881
 ☎️ 2085 2821
 </div>
@@ -274,6 +308,7 @@ Fabricación propia, diseño a medida e instalación. Soluciones para hogares, c
 </main>
 
 <script>
+
 const imagenes = [
 "foto1.jpg",
 "foto2.jpg",
@@ -293,7 +328,7 @@ const imgEl = document.getElementById('galeria-img');
 const dotsWrap = document.getElementById('dots');
 
 function renderDots(){
-  dotsWrap.innerHTML = '';
+  dotsWrap.innerHTML='';
 
   imagenes.forEach((_,i)=>{
     const d=document.createElement('div');
@@ -304,10 +339,12 @@ function renderDots(){
 }
 
 function mostrar(i){
+
   if(i<0) i=imagenes.length-1;
   if(i>=imagenes.length) i=0;
 
   indice=i;
+
   imgEl.src=imagenes[indice];
 
   renderDots();
@@ -322,6 +359,7 @@ setInterval(()=>{
 },4000);
 
 renderDots();
+
 </script>
 
 </body>
